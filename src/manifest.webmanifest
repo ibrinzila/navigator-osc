@@ -1,0 +1,9 @@
+{
+  "name": "Navigator OSC — Resurse publice",
+  "short_name": "Navigator OSC",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f9fc",
+  "theme_color": "#0f5f95",
+  "icons": []
+}

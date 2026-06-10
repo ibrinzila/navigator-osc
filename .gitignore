@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+dist/
+.deploy/
+.wrangler/
+tmp/
+.env
+.env.*
+*.log

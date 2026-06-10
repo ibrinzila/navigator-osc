@@ -1,0 +1,12 @@
+{
+  "name": "navigator-osc",
+  "version": "2.0.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "python3 -m http.server 8099 --directory dist",
+    "deploy": "npm run build && rm -rf .deploy && mkdir -p .deploy && cp -R dist/. .deploy/ && npx wrangler pages deploy .deploy --project-name=navigator-resurse-publice-osc --branch main"
+  },
+  "devDependencies": {}
+}

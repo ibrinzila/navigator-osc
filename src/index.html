@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Navigator OSC — Resurse publice în Republica Moldova</title>
+  <meta name="description" content="Navigator interactiv pentru organizațiile societății civile: granturi publice, 2%, antreprenoriat social, achiziții publice, CNAM, servicii sociale, calendar și CPV." />
+  <meta name="theme-color" content="#0f5f95" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preload" href="assets/css/main.css" as="style" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Sari la conținut</a>
+
+  <header class="site-header" data-elevate>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Navigator OSC - pagina principală">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span>
+          <strong>Navigator OSC</strong>
+          <small data-i18n="brandSubtitle">Resurse publice · Moldova</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="Navigare principală">
+        <a href="#ruta" data-i18n="navRoute">Ruta</a>
+        <a href="#cautare" data-i18n="navSearch">Căutare</a>
+        <a href="#mecanisme" data-i18n="navMechanisms">Mecanisme</a>
+        <a href="#calendar" data-i18n="navCalendar">Calendar</a>
+        <a href="#incredere" data-i18n="navTrust">Metodologie</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="open-command" type="button" aria-label="Deschide căutarea rapidă"><span aria-hidden="true">⌘K</span></button>
+        <label class="language-label" for="language-select"><span class="sr-only">Limba interfeței</span></label>
+        <select id="language-select" class="language-select" aria-label="Limba interfeței">
+          <option value="ro">RO</option>
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="top" class="hero-section">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">Instrument de lucru pentru OSC-uri</p>
+          <h1 data-i18n="heroTitle">Găsește cea mai potrivită cale spre resurse publice.</h1>
+          <p class="hero-lead" data-i18n="heroLead">Pornește de la intenția organizației, nu de la limbajul juridic. Navigatorul reduce ghidul la rute, pași, termene, riscuri și surse oficiale.</p>
+          <div class="hero-actions" aria-label="Acțiuni principale">
+            <a href="#ruta" class="button primary" data-i18n="startPrimary">Găsește ruta potrivită</a>
+            <a href="#cautare" class="button secondary" data-i18n="searchButton">Caută un termen</a>
+          </div>
+          <div class="trust-strip" aria-label="Metadate instrument">
+            <span><strong id="stat-opps">29</strong> <span data-i18n="metricMechanisms">mecanisme</span></span>
+            <span><strong id="stat-calendar">14</strong> <span data-i18n="metricDeadlines">momente în calendar</span></span>
+            <span><strong>0</strong> <span data-i18n="metricBackend">bază de date externă obligatorie</span></span>
+          </div>
+        </div>
+        <aside class="hero-card guide-card" aria-label="Ghid practic PDF și metodologia">
+          <div class="guide-toolbar" aria-label="Controale ghid">
+            <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="guide-title">
+              <strong>Ghid practic</strong>
+              <span>PDF · 93 pagini</span>
+            </div>
+            <a class="guide-open" href="assets/docs/ghid-practic.pdf" target="_blank" rel="noopener" aria-label="Deschide PDF-ul ghidului într-o filă nouă">PDF</a>
+          </div>
+          <div class="pdf-panel">
+            <object class="guide-pdf" data="assets/docs/ghid-practic.pdf#page=1&view=FitH&toolbar=0&navpanes=0" type="application/pdf" aria-label="Ghid practic pentru organizațiile societății civile privind accesarea resurselor publice în Republica Moldova">
+              <div class="pdf-fallback">
+                <img src="assets/img/ghid-cover.jpg" alt="Coperta ghidului practic pentru organizațiile societății civile privind accesarea resurselor publice în Republica Moldova" loading="eager" />
+                <a class="button primary small" href="assets/docs/ghid-practic.pdf" target="_blank" rel="noopener">Deschide PDF</a>
+              </div>
+            </object>
+          </div>
+          <div class="hero-note">
+            <strong data-i18n="sourceBased">Bazat pe ghidul CONTACT / GIZ / Cancelaria de Stat</strong>
+            <span id="product-updated">Actualizat: 10.06.2026</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="intent-section" aria-labelledby="intent-title">
+      <div class="shell">
+        <div class="section-heading center">
+          <p class="eyebrow" data-i18n="intentEyebrow">Intrare după intenție</p>
+          <h2 id="intent-title" data-i18n="intentTitle">Ce încerci să rezolvi acum?</h2>
+          <p data-i18n="intentLead">Alege o intrare rapidă. Sistemul va seta filtrele, va explica ruta și va propune următorii pași.</p>
+        </div>
+        <div id="intent-cards" class="intent-grid" aria-label="Puncte de pornire"></div>
+      </div>
+    </section>
+
+    <section id="ruta" class="route-section" aria-labelledby="route-title">
+      <div class="shell route-grid">
+        <div class="route-panel">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="routeEyebrow">Flux principal</p>
+            <h2 id="route-title" data-i18n="routeTitle">Ruta în 3 pași</h2>
+            <p data-i18n="routeLead">Conceptul este simplu: scopul organizației → profilul organizației → fereastra de acțiune. Rezultatul este o listă scurtă de mecanisme, nu o pagină lungă de citit.</p>
+          </div>
+          <form id="route-form" class="stepper" aria-describedby="route-result-help">
+            <fieldset>
+              <legend><span>1</span><strong data-i18n="step1Title">Ce vrei să obții?</strong></legend>
+              <div class="choice-grid" id="goal-choices"></div>
+            </fieldset>
+            <fieldset>
+              <legend><span>2</span><strong data-i18n="step2Title">Ce tip de organizație ești?</strong></legend>
+              <div class="choice-grid compact" id="org-choices"></div>
+            </fieldset>
+            <fieldset>
+              <legend><span>3</span><strong data-i18n="step3Title">Cât de rapid ai nevoie de rezultat?</strong></legend>
+              <div class="choice-grid compact" id="time-choices"></div>
+            </fieldset>
+            <div class="stepper-actions">
+              <button type="submit" class="button primary" data-i18n="buildRoute">Construiește ruta</button>
+              <button type="button" class="button ghost" id="reset-route" data-i18n="resetRoute">Resetează</button>
+            </div>
+          </form>
+        </div>
+        <aside class="answer-panel" aria-labelledby="answer-title">
+          <h3 id="answer-title" data-i18n="guidedAnswer">Răspuns ghidat</h3>
+          <p id="route-result-help" class="muted" data-i18n="guidedAnswerHelp">Aici apare ruta recomandată, explicată cu surse și următorii pași.</p>
+          <div id="guided-answer" class="guided-answer" aria-live="polite"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="cautare" class="search-section" aria-labelledby="search-title">
+      <div class="shell">
+        <div class="section-heading search-heading">
+          <div>
+            <p class="eyebrow" data-i18n="searchEyebrow">Căutare semantică ușoară</p>
+            <h2 id="search-title" data-i18n="searchTitle">Scrie cum ai întreba un coleg.</h2>
+            <p data-i18n="searchLead">Căutarea folosește sinonime, termeni populari, CPV-uri, instituții și limbaj de acțiune. Nu trebuie să știi exact cum se numește mecanismul.</p>
+          </div>
+          <button type="button" class="button secondary" id="copy-state" data-i18n="copyShareLink">Copiază link cu starea curentă</button>
+        </div>
+        <div class="search-box" role="search">
+          <label for="global-search" data-i18n="searchLabel">Caută mecanisme, instituții, termene sau CPV</label>
+          <div class="search-input-wrap">
+            <input id="global-search" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="ex: venit stabil, contract cu statul, CNAM, CPV 853, 2%, grant tineret" aria-describedby="search-hint" aria-controls="suggestions-list" aria-expanded="false" />
+            <button type="button" class="button primary small" id="run-search" data-i18n="runSearch">Caută</button>
+          </div>
+          <p id="search-hint" class="hint" data-i18n="searchHint">Sugestie: încearcă „first-time applicant”, „state contract”, „stable income”, „servicii sociale” sau „30 aprilie”.</p>
+          <div id="suggestions-list" class="suggestions" role="listbox" aria-label="Sugestii de căutare"></div>
+        </div>
+        <div class="filter-bar" aria-label="Filtre mecanisme">
+          <label><span data-i18n="filterArea">Arie</span><select id="filter-area"><option value="">Toate</option></select></label>
+          <label><span data-i18n="filterRelevance">Relevanță</span><select id="filter-relevance"><option value="">Toate</option></select></label>
+          <label><span data-i18n="filterEffort">Efort</span><select id="filter-effort"><option value="">Toate</option></select></label>
+          <label><span data-i18n="filterSort">Sortare</span><select id="sort-by"><option value="priority">Prioritate</option><option value="urgency">Urgență</option><option value="effort">Efort redus</option><option value="name">A-Z</option></select></label>
+          <button type="button" class="button ghost" id="clear-filters" data-i18n="clearFilters">Curăță</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="mecanisme" class="mechanisms-section" aria-labelledby="mechanisms-title">
+      <div class="shell">
+        <div class="section-heading results-heading">
+          <div>
+            <p class="eyebrow" data-i18n="matrixEyebrow">Matrice operațională</p>
+            <h2 id="mechanisms-title"><span id="result-count">0</span> <span data-i18n="mechanismsShown">mecanisme afișate</span></h2>
+          </div>
+          <div class="result-actions">
+            <button type="button" class="button secondary" id="open-compare" disabled data-i18n="openCompare">Compară selecția</button>
+            <button type="button" class="button secondary" id="export-csv" data-i18n="exportCsv">Export CSV</button>
+          </div>
+        </div>
+        <div id="active-chips" class="chips" aria-live="polite"></div>
+        <div id="cards" class="cards-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="instrumente" class="tools-section" aria-labelledby="tools-title">
+      <div class="shell tools-grid">
+        <div class="tool-card" id="profile-card">
+          <h2 id="tools-title" data-i18n="orgProfileTitle">Profil organizație</h2>
+          <p class="muted" data-i18n="orgProfileLead">Setează profilul pentru recomandări mai bune. Datele rămân în browser.</p>
+          <form id="profile-form" class="profile-form">
+            <label><span data-i18n="profileType">Tip organizație</span><select id="profile-type"><option value="">Nesetat</option></select></label>
+            <label><span data-i18n="profileExperience">Experiență</span><select id="profile-experience"><option value="beginner">Începător</option><option value="intermediate">Mediu</option><option value="advanced">Avansat</option></select></label>
+            <label><span data-i18n="profilePriority">Prioritate</span><select id="profile-priority"><option value="funding">Finanțare</option><option value="contracts">Contracte publice</option><option value="sustainability">Sustenabilitate</option></select></label>
+            <button type="submit" class="button primary small" data-i18n="saveProfile">Salvează profil</button>
+          </form>
+        </div>
+        <div class="tool-card">
+          <h2 data-i18n="watchTitle">Mecanisme urmărite</h2>
+          <p class="muted" data-i18n="watchLead">Urmărirea este locală. Pentru notificări reale se poate conecta ulterior la e-mail/Workers.</p>
+          <div id="watch-list" class="watch-list"></div>
+          <button type="button" class="button secondary small" id="download-watch-ics" data-i18n="downloadIcs">Descarcă calendar .ics</button>
+        </div>
+        <div class="tool-card">
+          <h2 data-i18n="liveSourcesTitle">Verificare live surse</h2>
+          <p class="muted" data-i18n="liveSourcesLead">Deschide sursele oficiale și marchează manual ce ai verificat azi.</p>
+          <div id="source-monitor" class="source-monitor"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendar" class="calendar-section" aria-labelledby="calendar-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="calendarEyebrow">Planificare anuală</p>
+          <h2 id="calendar-title" data-i18n="calendarTitle">Calendarul deciziilor</h2>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </div>
+    </section>
+
+    <section id="cpv" class="cpv-section" aria-labelledby="cpv-title">
+      <div class="shell">
+        <div class="section-heading search-heading">
+          <div>
+            <p class="eyebrow" data-i18n="cpvEyebrow">Achiziții publice</p>
+            <h2 id="cpv-title" data-i18n="cpvTitle">CPV finder pentru servicii OSC</h2>
+            <p data-i18n="cpvLead">Transformă limbajul de program în limbaj de achiziții și caută direct în MTender.</p>
+          </div>
+          <a class="button secondary" href="https://mtender.gov.md/" target="_blank" rel="noopener" data-i18n="openMtender">Deschide MTender</a>
+        </div>
+        <div id="cpv-list" class="cpv-list"></div>
+      </div>
+    </section>
+
+    <section id="checklist" class="checklist-section" aria-labelledby="checklist-title">
+      <div class="shell">
+        <div class="section-heading results-heading">
+          <div>
+            <p class="eyebrow" data-i18n="checklistEyebrow">Pregătire instituțională</p>
+            <h2 id="checklist-title" data-i18n="checklistTitle">Dosarul standard OSC</h2>
+          </div>
+          <button type="button" class="button secondary" id="export-checklist" data-i18n="exportChecklist">Exportă checklist</button>
+        </div>
+        <div id="checklist-list" class="checklist-list"></div>
+      </div>
+    </section>
+
+    <section id="incredere" class="trust-section" aria-labelledby="trust-title">
+      <div class="shell trust-grid">
+        <div>
+          <p class="eyebrow" data-i18n="trustEyebrow">Metodologie și limite</p>
+          <h2 id="trust-title" data-i18n="trustTitle">Ce face instrumentul și ce nu face.</h2>
+          <div class="method-cards">
+            <article>
+              <h3 data-i18n="whatDoesTitle">Ce face</h3>
+              <p data-i18n="whatDoesText">Structurează ghidul într-o hartă de decizie: mecanisme, termene, eligibilitate, pași, riscuri, CPV și surse.</p>
+            </article>
+            <article>
+              <h3 data-i18n="verifyTitle">Ce trebuie verificat live</h3>
+              <p data-i18n="verifyText">Apelurile active, anexele, termenele, formularele, bugetele aprobate, statutul instituțiilor și modificările legislative.</p>
+            </article>
+            <article>
+              <h3 data-i18n="lastUpdatedTitle">Ultima actualizare</h3>
+              <p><span id="trust-updated">10.06.2026</span>. <span data-i18n="guideLawDate">Ghidul indică faptul că informațiile juridice reflectă date orientative valabile în septembrie 2025.</span></p>
+            </article>
+          </div>
+        </div>
+        <aside class="sources-box">
+          <h3 data-i18n="sourceIndexTitle">Index surse</h3>
+          <div id="sources-list"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="dialog-root" aria-live="polite"></div>
+
+  <dialog id="detail-dialog" class="app-dialog" aria-labelledby="detail-title">
+    <div class="dialog-shell">
+      <button type="button" class="dialog-close" data-close-dialog aria-label="Închide">×</button>
+      <div id="detail-content"></div>
+    </div>
+  </dialog>
+
+  <dialog id="compare-dialog" class="app-dialog wide" aria-labelledby="compare-title">
+    <div class="dialog-shell">
+      <button type="button" class="dialog-close" data-close-dialog aria-label="Închide">×</button>
+      <h2 id="compare-title" data-i18n="compareTitle">Comparare mecanisme</h2>
+      <div id="compare-content" class="compare-content"></div>
+    </div>
+  </dialog>
+
+  <dialog id="command-dialog" class="app-dialog command-dialog" aria-labelledby="command-title">
+    <div class="dialog-shell">
+      <button type="button" class="dialog-close" data-close-dialog aria-label="Închide">×</button>
+      <h2 id="command-title">Căutare rapidă</h2>
+      <label class="sr-only" for="command-input">Caută rapid</label>
+      <input id="command-input" class="command-input" type="search" placeholder="Caută mecanisme, surse, CPV..." autocomplete="off" />
+      <div id="command-results" class="command-results" role="listbox" aria-label="Rezultate căutare rapidă"></div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

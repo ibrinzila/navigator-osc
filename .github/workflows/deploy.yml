@@ -1,0 +1,38 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: 3b9559789b36b17e8dd609519a52ae13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Prepare deploy artifact
+        run: |
+          rm -rf .deploy
+          mkdir -p .deploy
+          cp -R dist/. .deploy/
+
+      - name: Deploy
+        run: npx wrangler pages deploy .deploy --project-name=navigator-resurse-publice-osc --branch main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
